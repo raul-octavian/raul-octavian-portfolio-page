@@ -70,6 +70,18 @@ button {
     cursor: pointer;
   }
 }
+
+@media screen and (max-width: 960px) {
+  .grid-system {
+    grid-template-columns: repeat(12, 1fr);
+  }
+  .grid-centered-6 {
+    grid-column: 2 / span 10;
+  }
+  .grid-centered-7 {
+    grid-column: 2 / span 11;
+  }
+}
 </style>
 
 <script>

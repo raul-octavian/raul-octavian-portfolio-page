@@ -1,6 +1,11 @@
 <template>
   <article class="project-element">
-    <div class="redCaseSet position-name">
+    <div
+      class="redCaseSet position-name"
+      data-aos="fade-right"
+      data-aos-offset="250"
+      data-aos-easing="ease-in-sine"
+    >
       <div class="redLine redCaseLeft display"></div>
       <div class="redLine redCaseTop display"></div>
       <div class="redLine redCaseRight display"></div>
@@ -12,7 +17,12 @@
       </h3>
     </div>
 
-    <div class="project-text-container small-font-about position-text">
+    <div
+      class="project-text-container small-font-about position-text"
+      data-aos="fade-right"
+      data-aos-offset="150"
+      data-aos-easing="ease-in-sine"
+    >
       <p>
         This school project had as a subject the school canteen. Our job was to
         evaluate its services and the UX of its customers and try to improve it
@@ -40,7 +50,12 @@
         >
       </div>
     </div>
-    <div class="project-image-wrapper position-image">
+    <div
+      class="project-image-wrapper position-image"
+      data-aos="fade-left"
+      data-aos-offset="300"
+      data-aos-easing="ease-in-sine"
+    >
       <a href="https://easvcanteen.netlify.app/" target="blank">
         <div class="image"></div>
         <!-- <img
@@ -73,11 +88,11 @@ h3 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto auto;
-  gap: 0 10rem;
+  gap: 0 6rem;
   grid-template-areas:
     "name name"
     "text image";
-  min-height: 60vh;
+  min-height: 50vh;
 }
 .position-title {
   grid-area: name;
@@ -120,18 +135,58 @@ h3 {
   color: var(--codeLink);
 }
 .project-image-wrapper {
-  min-width: 350px;
+  min-width: 20rem;
   a {
     display: block;
     height: 100%;
     width: 100%;
 
     .image {
-      width: 100%;
       height: 100%;
       background: url("../assets/easv-canteen -screenshot.png");
       background-position: center;
-      background-size: cover;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .project-element {
+    grid-template-areas:
+      "name image"
+      "text text";
+    gap: 1rem 1rem;
+  }
+  .display {
+    display: block;
+  }
+  .redCaseSet {
+    height: 15rem;
+    width: 15rem;
+  }
+  h3 {
+    display: flex;
+    flex-direction: column;
+    span {
+      margin-right: 0;
+      font-size: 2rem;
+    }
+  }
+  .project-image-wrapper {
+    min-width: 20rem;
+    a {
+      display: block;
+      height: 100%;
+      width: 100%;
+
+      .image {
+        height: 100%;
+        background: url("../assets/easv-canteen -screenshot.png");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
     }
   }
 }

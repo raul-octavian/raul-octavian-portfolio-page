@@ -1,5 +1,10 @@
 <template>
-  <div class="section-separator">
+  <div
+    class="section-separator"
+    data-aos="fade-left"
+    data-aos-offset="350"
+    data-aos-easing="ease-in-sine"
+  >
     <div class="sep-text-container"><slot></slot></div>
 
     <div class="line"></div>

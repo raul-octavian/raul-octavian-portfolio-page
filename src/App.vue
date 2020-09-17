@@ -27,6 +27,27 @@
   color: var(--secondary);
   padding-bottom: 10rem;
 }
+
+@media screen and (max-width: 1500px) {
+  :root {
+    font-size: 17px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  :root {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 960px) {
+  :root {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 769px) {
+  :root {
+    font-size: 15px;
+  }
+}
 </style>
 
 <script>

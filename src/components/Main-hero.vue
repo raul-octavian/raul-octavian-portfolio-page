@@ -1,6 +1,11 @@
 <template>
   <section id="home">
-    <div class="redCaseSet">
+    <div
+      class="redCaseSet"
+      data-aos="fade-right"
+      data-aos-offset="300"
+      data-aos-easing="ease-in-sine"
+    >
       <div class="redLine redCaseLeft"></div>
       <div class="redLine redCaseTop"></div>
       <div class="redLine redCaseRight"></div>
@@ -12,7 +17,12 @@
       </h1>
       <h4 class="position-bottom-left">Web Developer</h4>
     </div>
-    <div class="image-container">
+    <div
+      class="image-container"
+      data-aos="fade-left"
+      data-aos-offset="300"
+      data-aos-easing="ease-in-sine"
+    >
       <img
         src="../assets/mosaic-black-and-white-left.png"
         alt="mosaic image of Raul Octavian, the website's subject"
@@ -83,5 +93,11 @@ export default {};
   position: absolute;
   bottom: -0.3rem;
   margin: 0;
+}
+
+@media screen and (max-width: 769px) {
+  .image-container {
+    display: none;
+  }
 }
 </style>

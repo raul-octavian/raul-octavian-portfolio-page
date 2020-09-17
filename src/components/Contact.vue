@@ -1,7 +1,14 @@
 <template>
   <div id="contact">
     <div class="contact-image place-image"></div>
-    <form class="form-position form-size" @submit.prevent="sendEmail">
+    <form
+      class="form-position form-size"
+      v-on:submit.prevent="sendEmail"
+      data-aos="fade-up"
+      data-aos-anchor-placement="top-bottom"
+      data-aos-offset="300"
+      data-aos-easing="ease-in-sine"
+    >
       <section class="input-wrapper">
         <input
           type="text"
@@ -32,20 +39,39 @@
     </form>
 
     <div class="links">
-      <div v-if="sentSucces" class="modal">
+      <div
+        v-if="sentSucces"
+        @click="sentSucces = false"
+        class="modal"
+        data-aos="fade-left"
+        data-aos-anchor-placement="top-bottom"
+        data-aos-easing="ease-in-sine"
+      >
         <p>
           You have succesfully sent the massage, I will reply as soon as
           posible.
         </p>
       </div>
-      <p class="link-support">
+      <p
+        class="link-support"
+        data-aos="fade-up"
+        data-aos-anchor-placement="top-bottom"
+        data-aos-offset="100"
+        data-aos-easing="ease-in-sine"
+      >
         You can also contact me on
         <a href="https://www.linkedin.com/in/raul-octavian-albu/" target="blank"
           ><span class="link-color">Linkedin</span></a
         >
       </p>
 
-      <p class="link-support">
+      <p
+        class="link-support"
+        data-aos="fade-up"
+        data-aos-anchor-placement="top-bottom"
+        data-aos-offset="100"
+        data-aos-easing="ease-in-sine"
+      >
         or you can follow me on
         <a
           href="https://github.com/raul-octavian"
@@ -54,7 +80,13 @@
           ><span class="link-color">Github</span></a
         >
       </p>
-      <p class="link-support">
+      <p
+        class="link-support"
+        data-aos="fade-up"
+        data-aos-anchor-placement="top-bottom"
+        data-aos-offset="100"
+        data-aos-easing="ease-in-sine"
+      >
         or you can
         <a
           download
@@ -77,8 +109,7 @@ export default {
     };
   },
   methods: {
-    sendEmail: e => {
-      console.log(e);
+    sendEmail(e) {
       emailjs
         .sendForm(
           "gmail",
@@ -88,7 +119,8 @@ export default {
         )
         .then(
           result => {
-            alert("Email succesfully sent", result.status, result.text);
+            this.sentSucces = true;
+            console.log(result);
           },
           error => {
             console.log("FAILED...", error);
@@ -102,9 +134,10 @@ export default {
 <style lang="scss" scoped>
 #contact {
   background-color: var(--secondary);
-  padding: 5rem;
+  padding: 3rem;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto;
   position: relative;
 }
 .contact-image {
@@ -122,6 +155,10 @@ export default {
   grid-row: 4 / 5;
   text-align: right;
   padding: 3rem;
+  position: relative;
+  p {
+    font-size: 0.9rem;
+  }
 }
 .link-support {
   color: var(--primary);
@@ -222,21 +259,52 @@ input:-internal-autofill-selected {
 }
 
 .modal {
-  // position: absolute;
+  position: absolute;
   // left: 50%;
-  // top: 2rem;
+  top: 0;
   // transform: translateX(-50%);
   box-sizing: border-box;
-  padding: 1rem 1.5rem;
+  padding: 0.5rem 1rem;
   background-color: var(--scondary);
   color: var(--codeLink);
-  width: 100%;
+  width: calc(100% - 6rem);
   border: 2px solid var(--codeLink);
   font-size: 0.8rem;
 
   p {
     padding: 0;
     margin: 0;
+    text-align: left;
+    font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 769px) {
+  #contact {
+    padding: 0 2rem;
+    min-height: 100vh;
+  }
+  .contact-image {
+    grid-column: 1 / 4;
+    grid-row: 2 / 6;
+  }
+  .form-position {
+    grid-column: 1/ 6;
+    grid-row: 1 / 2;
+  }
+  .links {
+    grid-column: 3/ 6;
+    grid-row: 2 / 3;
+  }
+  textarea {
+    width: 100%;
+    min-height: 15vh;
+  }
+  .form-size {
+    min-width: 100%;
+    padding: 0;
+  }
+  .place-image {
+    background-size: 100%;
   }
 }
 </style>

@@ -52,10 +52,10 @@
     </div>
     <nav class="navigation-position">
       <ul class="navigation-style">
-        <a href="#home"><li>HOME</li></a>
-        <a href="#about"><li>ABOUT</li></a>
-        <a href="#projects"><li>PROJECTS</li></a>
-        <a href="#contact"><li>CONTACT</li></a>
+        <a href="#home" v-smooth-scroll><li>HOME</li></a>
+        <a href="#about" v-smooth-scroll><li>ABOUT</li></a>
+        <a href="#projects" v-smooth-scroll><li>PROJECTS</li></a>
+        <a href="#contact" v-smooth-scroll><li>CONTACT</li></a>
       </ul>
     </nav>
   </header>
@@ -111,6 +111,25 @@ export default {};
         bottom: 0;
         background-color: var(--elementBg);
         display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .header {
+    justify-content: space-between;
+  }
+  .navigation-position {
+    position: absolute;
+    right: 2rem;
+    top: 0;
+    .navigation-style {
+      flex-direction: column;
+      li {
+        text-align: right;
+        margin-top: 2rem;
+        font-size: 1.2rem;
       }
     }
   }
