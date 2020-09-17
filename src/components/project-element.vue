@@ -11,9 +11,9 @@
       <div class="redLine redCaseRight display"></div>
       <div class="redLine redCaseBottom display"></div>
       <h3>
-        <span>EASV</span>
-        <span>Canteen</span>
-        <span>project</span>
+        <span v-for="(name, index) in project.project.name" :key="index">
+          {{ name }}
+        </span>
       </h3>
     </div>
 
@@ -23,31 +23,30 @@
       data-aos-offset="150"
       data-aos-easing="ease-in-sine"
     >
-      <p>
-        This school project had as a subject the school canteen. Our job was to
-        evaluate its services and the UX of its customers and try to improve it
-        in the digital environment. After doing our research: interviews and
-        observations, our findings showed that the biggest problem was the
-        narrow communication channel that the canteen was using(printed paper).
-        This was limiting their reach. As a result, we decided to create a
-        website for the organization that would exponentially improve their
-        communication capabilities and its reach in the student community. The
-        goal of the project was to create a wireframe for our solution. I went a
-        bit further and made a prototype webpage
-      </p>
+      <div>
+        <p
+          class="description"
+          v-for="(desc, index) in project.project.description"
+          :key="index"
+        >
+          {{ desc }}
+        </p>
+      </div>
       <div class="button-wrapper">
-        <a href="https://easvcanteen.netlify.app/" target="blank"
-          ><button class="link-btn live-website-access">
-            Website
-          </button></a
-        >
-        <a
-          href="https://github.com/raul-octavian/canteen-project"
-          target="blank"
-          ><button class="link-btn gitHub-access">
-            Repository
-          </button></a
-        >
+        <a :href="project.project.websiteLink" target="blank">
+          <button class="link-btn live-website-access">
+            <p
+              v-if="project.project.name[0] === 'Water'"
+              @click.prevent="isVideo(project.project.name[0])"
+            >
+              Play video
+            </p>
+            <p v-else>Website</p>
+          </button>
+        </a>
+        <a :href="project.project.codeLink" target="blank">
+          <button class="link-btn gitHub-access">Repository</button>
+        </a>
       </div>
     </div>
     <div
@@ -56,22 +55,61 @@
       data-aos-offset="300"
       data-aos-easing="ease-in-sine"
     >
-      <a href="https://easvcanteen.netlify.app/" target="blank">
-        <div class="image"></div>
-        <!-- <img
-            src="../assets/easv-canteen -screenshot.png"
-            alt="EASV project screenshot"
-        /> -->
+      <a>
+        <div class="image">
+          <img :src="project.project.imageURL" alt />
+        </div>
       </a>
+    </div>
+
+    <div class="video-container" v-if="showVideo">
+      <iframe
+        width="663"
+        height="373"
+        src="https://www.youtube.com/embed/5NYV_mr4IfM"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+      <button @click="showVideo = false" class="close-btn">close Window</button>
     </div>
   </article>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["project"],
+  data() {
+    return {
+      showVideo: false
+    };
+  },
+  computes: {},
+  methods: {
+    isVideo(item) {
+      if (item === "Water") {
+        this.showVideo = true;
+        console.log(item);
+      }
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
+.close-btn {
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.video-container {
+  width: auto;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
 .display {
   display: none;
 }
@@ -92,7 +130,7 @@ h3 {
   grid-template-areas:
     "name name"
     "text image";
-  min-height: 50vh;
+  min-height: 40vh;
 }
 .position-title {
   grid-area: name;
@@ -111,11 +149,24 @@ h3 {
   flex-direction: column;
   justify-content: space-between;
 }
+.description {
+  padding: 0;
+  margin: 0;
+  &::first-line {
+    text-indent: 1rem;
+  }
+}
 
 .button-wrapper {
   display: flex;
   justify-content: flex-start;
   gap: 2rem;
+  align-self: flex-end;
+
+  p {
+    padding: 0;
+    margin: 0;
+  }
 }
 
 .link-btn {
@@ -135,7 +186,7 @@ h3 {
   color: var(--codeLink);
 }
 .project-image-wrapper {
-  min-width: 20rem;
+  max-width: 30rem;
   a {
     display: block;
     height: 100%;
@@ -143,10 +194,10 @@ h3 {
 
     .image {
       height: 100%;
-      background: url("../assets/easv-canteen -screenshot.png");
-      background-position: center;
-      background-size: contain;
-      background-repeat: no-repeat;
+      img {
+        height: auto;
+        width: 100%;
+      }
     }
   }
 }
@@ -181,11 +232,10 @@ h3 {
       width: 100%;
 
       .image {
-        height: 100%;
-        background: url("../assets/easv-canteen -screenshot.png");
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
+        width: 100%;
+        image {
+          width: 100%;
+        }
       }
     }
   }
