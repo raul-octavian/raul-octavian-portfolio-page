@@ -128,6 +128,7 @@ h3 {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto auto;
   gap: 0 6rem;
+
   grid-template-areas:
     "name name"
     "text image";
@@ -141,7 +142,7 @@ h3 {
 }
 .position-image {
   grid-area: image;
-  justify-self: end;
+  place-self: center;
 }
 .project-text-container {
   background-color: var(--secondary);
