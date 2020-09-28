@@ -3,7 +3,6 @@
     <div
       class="redCaseSet"
       data-aos="fade-right"
-      data-aos-offset="300"
       data-aos-easing="ease-in-sine"
     >
       <div class="redLine redCaseLeft"></div>
@@ -98,6 +97,19 @@ export default {};
 @media screen and (max-width: 769px) {
   .image-container {
     display: none;
+  }
+  .redCaseSet {
+    height: 20rem;
+    width: 20rem;
+  }
+}
+@media screen and (max-width: 340px) {
+  .image-container {
+    display: none;
+  }
+  .redCaseSet {
+    height: 13rem;
+    width: 13rem;
   }
 }
 </style>

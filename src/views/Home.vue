@@ -6,7 +6,7 @@
     <div class="grid-centered-6">
       <Hero></Hero>
     </div>
-    <div class="grid-centered-7">
+    <div class="grid-centered-6">
       <separator>
         <h2>ABOUT ME</h2>
       </separator>
@@ -14,7 +14,7 @@
     <div class="grid-centered-6">
       <About></About>
     </div>
-    <div class="grid-centered-7">
+    <div class="grid-centered-6">
       <separator>
         <h2>PROJECTS</h2>
       </separator>
@@ -22,7 +22,7 @@
     <div class="grid-centered-6">
       <Projects></Projects>
     </div>
-    <div class="grid-centered-7">
+    <div class="grid-centered-6">
       <separator>
         <h2>CONTACT</h2>
       </separator>
@@ -38,6 +38,8 @@
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: auto;
+  padding: 0;
+  margin: 0;
 }
 .grid-centered-6 {
   grid-column: 2 / span 6;
@@ -71,7 +73,7 @@ button {
   }
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1367px) {
   .grid-system {
     grid-template-columns: repeat(12, 1fr);
   }
@@ -79,7 +81,16 @@ button {
     grid-column: 2 / span 10;
   }
   .grid-centered-7 {
-    grid-column: 2 / span 11;
+    grid-column: 2 / span 10;
+  }
+  h2 {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 1367px) {
+  h1 {
+    font-size: 2rem;
   }
 }
 </style>

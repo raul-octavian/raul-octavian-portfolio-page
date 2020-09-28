@@ -3,7 +3,6 @@
     <div
       class="redCaseSet position-name"
       data-aos="fade-right"
-      data-aos-offset="250"
       data-aos-easing="ease-in-sine"
     >
       <div class="redLine redCaseLeft display"></div>
@@ -20,7 +19,6 @@
     <div
       class="project-text-container small-font-about position-text"
       data-aos="fade-right"
-      data-aos-offset="150"
       data-aos-easing="ease-in-sine"
     >
       <div>
@@ -52,7 +50,6 @@
     <div
       class="project-image-wrapper position-image"
       data-aos="fade-left"
-      data-aos-offset="300"
       data-aos-easing="ease-in-sine"
     >
       <a>
@@ -64,8 +61,8 @@
 
     <div class="video-container" v-if="showVideo">
       <iframe
-        width="663"
-        height="373"
+        width="320"
+        height="180"
         src="https://www.youtube.com/embed/5NYV_mr4IfM"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -97,6 +94,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.project-element {
+  margin: 0;
+  padding: 0;
+}
 .close-btn {
   color: var(--accent);
   border: 1px solid var(--accent);
@@ -130,7 +131,7 @@ h3 {
   grid-template-areas:
     "name name"
     "text image";
-  min-height: 40vh;
+  // min-height: 40vh;
 }
 .position-title {
   grid-area: name;
@@ -140,6 +141,7 @@ h3 {
 }
 .position-image {
   grid-area: image;
+  justify-self: end;
 }
 .project-text-container {
   background-color: var(--secondary);
@@ -148,6 +150,7 @@ h3 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-sizing: border-box;
 }
 .description {
   padding: 0;
@@ -175,25 +178,80 @@ h3 {
   border: 2px solid;
   border-radius: 5px;
   font-size: 0.8rem;
+  position: relative;
+  font-weight: 600;
 }
 
 .live-website-access {
   border-color: var(--websiteLink);
   color: var(--websiteLink);
+  position: relative;
+  overflow: hidden;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -80%;
+    height: 100%;
+    width: 120%;
+    background-color: var(--websiteLink);
+    transform: rotateZ(15deg);
+  }
+  &:hover {
+    animation-name: color-change;
+    animation-duration: 300ms;
+    animation-timing-function: ease-in-out;
+    color: var(--secondary);
+    &::before {
+      animation-name: btn-animation;
+      animation-duration: 300ms;
+      animation-timing-function: ease-in-out;
+      top: 0;
+      left: -10%;
+      z-index: -1;
+    }
+  }
 }
+
 .gitHub-access {
   border-color: var(--codeLink);
   color: var(--codeLink);
+  position: relative;
+  overflow: hidden;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -80%;
+    height: 100%;
+    width: 120%;
+    background-color: var(--codeLink);
+    transform: rotateZ(15deg);
+  }
+  &:hover {
+    animation-name: color-change;
+    animation-duration: 300ms;
+    animation-timing-function: ease-in-out;
+    color: var(--secondary);
+    &::before {
+      animation-name: btn-animation;
+      animation-duration: 300ms;
+      animation-timing-function: ease-in-out;
+      top: 0;
+      left: -10%;
+      z-index: -1;
+    }
+  }
 }
 .project-image-wrapper {
-  max-width: 30rem;
+  max-width: 100%;
   a {
     display: block;
     height: 100%;
     width: 100%;
 
     .image {
-      height: 100%;
+      width: 100%;
       img {
         height: auto;
         width: 100%;
@@ -202,7 +260,7 @@ h3 {
   }
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 1367px) {
   .project-element {
     grid-template-areas:
       "name image"
@@ -213,8 +271,8 @@ h3 {
     display: block;
   }
   .redCaseSet {
-    height: 15rem;
-    width: 15rem;
+    height: 18rem;
+    width: 18rem;
   }
   h3 {
     display: flex;
@@ -225,7 +283,7 @@ h3 {
     }
   }
   .project-image-wrapper {
-    min-width: 20rem;
+    width: 100%;
     a {
       display: block;
       height: 100%;
@@ -238,6 +296,54 @@ h3 {
         }
       }
     }
+  }
+}
+@media screen and (max-width: 769px) {
+  .redCaseSet {
+    height: 12rem;
+    width: 12rem;
+  }
+  h3 {
+    span {
+      font-size: 1.5rem;
+    }
+  }
+  .project-image-wrapper {
+    min-width: 15rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .redCaseSet {
+    height: 10rem;
+    width: 10rem;
+  }
+  h3 {
+    span {
+      font-size: 1.2rem;
+    }
+  }
+  .description {
+    padding: 0;
+    margin: 0;
+    font-size: 0.8rem;
+    &::first-line {
+      text-indent: 1rem;
+    }
+  }
+}
+@media screen and (max-width: 340px) {
+  .redCaseSet {
+    height: 8rem;
+    width: 8rem;
+  }
+  h3 {
+    span {
+      font-size: 0.9rem;
+    }
+  }
+  .project-image-wrapper {
+    min-width: 8rem;
   }
 }
 </style>

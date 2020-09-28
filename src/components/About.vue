@@ -17,7 +17,6 @@
         class="small-font-about mid-sec-element"
         data-aos="fade-up"
         data-aos-anchor-placement="top-bottom"
-        data-aos-offset="200"
         data-aos-easing="ease-in-sine"
       >
         I am a multimedia student who loves to code. I dedicated my attention to
@@ -30,7 +29,6 @@
         class="verical-line"
         data-aos="fade-up"
         data-aos-anchor-placement="top-bottom"
-        data-aos-offset="150"
         data-aos-easing="ease-in-sine"
       ></div>
 
@@ -38,7 +36,6 @@
         class="small-font-about mid-sec-element"
         data-aos="fade-up"
         data-aos-anchor-placement="top-bottom"
-        data-aos-offset="300"
         data-aos-easing="ease-in-sine"
       >
         My INTJ-A aka “The Architect” personality and idealistic view of the
@@ -50,7 +47,6 @@
         class="verical-line"
         data-aos="fade-up"
         data-aos-anchor-placement="top-bottom"
-        data-aos-offset="150"
         data-aos-easing="ease-in-sine"
       ></div>
 
@@ -58,7 +54,6 @@
         class="small-font-about mid-sec-element"
         data-aos="fade-up"
         data-aos-anchor-placement="top-bottom"
-        data-aos-offset="400"
         data-aos-easing="ease-in-sine"
       >
         I consider life to be about learning and self-actualization, that's why
@@ -70,7 +65,6 @@
       class="about-bottom"
       data-aos="fade-up"
       data-aos-anchor-placement="top-bottom"
-      data-aos-offset="200"
       data-aos-easing="ease-in-sine"
     >
       <p class="bigger-font-about text-center">
@@ -101,11 +95,9 @@
 }
 .about-mid-section {
   padding: 3rem 0;
-  width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: space-between;
-  //   display: grid;
-  //   grid-template-columns: 1fr 3px 1fr 3px 1fr;
   p {
     width: 60%;
   }
@@ -115,25 +107,7 @@
 }
 
 .mid-sec-element {
-  //   display: flex;
-  //   justify-content: space-around;
-  //   position: relative;
   flex: 1;
-
-  //   &::after {
-  //     position: absolute;
-  //     content: "";
-  //     height: 100%;
-  //     width: 2px;
-  //     background-color: var(--accent);
-  //     left: 0;
-  //   }
-
-  //   &:first-child {
-  //     &::after {
-  //       display: none;
-  //     }
-  //   }
 }
 .verical-line {
   height: 200px;

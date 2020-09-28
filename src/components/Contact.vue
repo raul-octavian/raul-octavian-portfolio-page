@@ -6,7 +6,6 @@
       v-on:submit.prevent="sendEmail"
       data-aos="fade-up"
       data-aos-anchor-placement="top-bottom"
-      data-aos-offset="300"
       data-aos-easing="ease-in-sine"
     >
       <section class="input-wrapper">
@@ -35,7 +34,9 @@
           placeholder="enter message here"
         ></textarea>
       </section>
-      <input type="submit" value="Send email" id="submit" />
+      <div class="contact-btn">
+        <input type="submit" value="Send email" id="submit" />
+      </div>
     </form>
 
     <div class="links">
@@ -56,7 +57,6 @@
         class="link-support"
         data-aos="fade-up"
         data-aos-anchor-placement="top-bottom"
-        data-aos-offset="100"
         data-aos-easing="ease-in-sine"
       >
         You can also contact me on
@@ -69,7 +69,6 @@
         class="link-support"
         data-aos="fade-up"
         data-aos-anchor-placement="top-bottom"
-        data-aos-offset="100"
         data-aos-easing="ease-in-sine"
       >
         or you can follow me on
@@ -84,15 +83,10 @@
         class="link-support"
         data-aos="fade-up"
         data-aos-anchor-placement="top-bottom"
-        data-aos-offset="100"
         data-aos-easing="ease-in-sine"
       >
         or you can
-        <a
-          download
-          href="../../public/CV/Raul-Octavian-Albu-CV.pdf"
-          target="blank"
-        >
+        <a href="/Raul-Octavian-Albu-CV.pdf" target="blank">
           <span class="link-color">download my CV</span>
         </a>
       </p>
@@ -105,7 +99,7 @@ import emailjs from "emailjs-com";
 export default {
   data() {
     return {
-      sentSucces: false
+      sentSucces: true
     };
   },
   methods: {
@@ -139,6 +133,7 @@ export default {
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: auto;
   position: relative;
+  box-sizing: border-box;
 }
 .contact-image {
   grid-column: 1 / 3;
@@ -191,7 +186,7 @@ export default {
 }
 textarea {
   width: 100%;
-  min-height: 30vh;
+  min-height: 200px;
 }
 
 input {
@@ -249,15 +244,51 @@ input:-internal-autofill-selected {
   }
 }
 
+.contact-btn {
+  position: relative;
+  display: inline-block;
+  height: auto;
+  border-radius: 5px;
+  overflow: hidden;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -80%;
+    height: 100%;
+    width: 120%;
+    background-color: var(--contactLink);
+    transform: rotateZ(15deg);
+  }
+  &:hover {
+    &::before {
+      animation-name: btn-animation;
+      animation-duration: 300ms;
+      animation-timing-function: ease-in-out;
+      top: 0;
+      left: -10%;
+      z-index: -1;
+    }
+  }
+}
+
 #submit {
   padding: 0.5rem 1.5rem;
   background-color: transparent;
   color: var(--contactLink);
   border-radius: 5px;
   font-size: 0.8rem;
+  font-weight: 600;
   border: 2px solid;
+  outline: none;
+  width: 100%;
+  &:hover {
+    animation-name: color-change;
+    animation-duration: 300ms;
+    animation-timing-function: ease-in-out;
+    color: var(--secondary);
+  }
 }
-
 .modal {
   position: absolute;
   // left: 50%;
@@ -278,14 +309,17 @@ input:-internal-autofill-selected {
     font-size: 0.8rem;
   }
 }
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 851px) {
   #contact {
     padding: 0 2rem;
     min-height: 100vh;
+    grid-template-rows: repeat(2, 150px), 50px auto;
+    grid-template-rows: auto;
+    position: relative;
   }
   .contact-image {
     grid-column: 1 / 4;
-    grid-row: 2 / 6;
+    grid-row: 2/ 6;
   }
   .form-position {
     grid-column: 1/ 6;
@@ -294,6 +328,7 @@ input:-internal-autofill-selected {
   .links {
     grid-column: 3/ 6;
     grid-row: 2 / 3;
+    padding: 0;
   }
   textarea {
     width: 100%;
@@ -304,7 +339,21 @@ input:-internal-autofill-selected {
     padding: 0;
   }
   .place-image {
-    background-size: 100%;
+    background-size: contain;
+    background-position: top;
+  }
+  .modal {
+    width: 100%;
+    margin-top: -4rem;
+  }
+}
+
+@media screen and (max-width: 851px) {
+  .links {
+    text-align: right;
+    p {
+      font-size: 0.6rem;
+    }
   }
 }
 </style>

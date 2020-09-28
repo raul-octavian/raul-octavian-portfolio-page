@@ -2,7 +2,6 @@
   <div
     class="section-separator"
     data-aos="fade-left"
-    data-aos-offset="350"
     data-aos-easing="ease-in-sine"
   >
     <div class="sep-text-container"><slot></slot></div>
@@ -21,7 +20,7 @@ export default {};
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  margin: 3rem 0;
+  box-sizing: border-box;
 }
 .line {
   height: 5px;
@@ -31,5 +30,18 @@ export default {};
 }
 .sep-text-container {
   flex: 2;
+}
+
+@media screen and (max-width: 1337px) {
+  .line {
+    flex: 6;
+    height: 2px;
+  }
+  .sep-text-container {
+    flex: 3;
+  }
+  .section-separator {
+    margin: 1.5rem 0;
+  }
 }
 </style>

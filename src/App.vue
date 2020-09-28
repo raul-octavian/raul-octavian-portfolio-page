@@ -25,7 +25,39 @@
   background-color: var(--primary);
   min-height: 100vh;
   color: var(--secondary);
-  padding-bottom: 10rem;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+
+section {
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes btn-animation {
+  0% {
+    top: 50%;
+    left: -80%;
+  }
+  90% {
+    top: 5;
+    left: -5%;
+  }
+  100% {
+    top: 0;
+    left: -10%;
+  }
+}
+
+@keyframes color-change {
+  100% {
+    color: var(--secondary);
+  }
 }
 
 @media screen and (max-width: 1500px) {
@@ -33,19 +65,29 @@
     font-size: 17px;
   }
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1367px) {
+  :root {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 960px) {
   :root {
     font-size: 14px;
   }
 }
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 851px) {
   :root {
     font-size: 12px;
   }
 }
 @media screen and (max-width: 769px) {
   :root {
-    font-size: 15px;
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 550px) {
+  :root {
+    font-size: 10px;
   }
 }
 </style>
