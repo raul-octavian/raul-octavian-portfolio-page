@@ -24,11 +24,10 @@ export default new Vuex.Store({
           "A great and challenging subject was brought forward by Vala health and our second-semester project.",
           "A challenge that I tackled together with my team, and we created this amazing app.",
           "The challenge was to communicate with persons that suffer from depression and anxiety, and to help them communicate with each other.",
-          "The following website is the result of the first iteration and comes after three weeks of research, wireframe, and coding.",
-          "For the best experience, please open the link on your phone or Right-click - inspect - Toggle device toolbar - from the device dropdown menu chose one of the phone sizes you prefer."
+          "The following website is the result of the first iteration and comes after three weeks of research, wireframe, and coding."
         ],
         imageURL: require("../../public/Rhei.png"),
-        websiteLink: "https://rhei-prototype.netlify.app/",
+        websiteLink: "https://rhei-prototype-mobile.netlify.app/",
         codeLink: "https://github.com/team-awesome-EASV/rhei"
       },
       {
