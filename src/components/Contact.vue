@@ -99,7 +99,7 @@ import emailjs from "emailjs-com";
 export default {
   data() {
     return {
-      sentSucces: true
+      sentSucces: false
     };
   },
   methods: {
@@ -135,55 +135,67 @@ export default {
   position: relative;
   box-sizing: border-box;
 }
+
 .contact-image {
   grid-column: 1 / 3;
   grid-row: 1 / 6;
 }
+
 .place-image {
   background: url("../assets/walking-in-vienna.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
+
 .links {
   grid-column: 3/ 6;
   grid-row: 4 / 5;
   text-align: right;
   padding: 3rem;
   position: relative;
+
   p {
     font-size: 0.9rem;
   }
 }
+
 .link-support {
   color: var(--primary);
+
   button {
     border: none;
     background: transparent;
     font-size: inherit;
     color: var(--contactLink);
     outline: none;
+
     &:hover {
       cursor: pointer;
     }
   }
+
   a {
     color: var(--contactLink);
   }
 }
+
 .form-position {
   grid-column: 3/ 6;
   grid-row: 1 / 4;
 }
+
 .form-size {
   min-width: 300px;
   padding: 3rem;
 }
+
 .input-wrapper {
   display: flex;
   justify-content: space-between;
   gap: 2rem;
 }
+
 textarea {
   width: 100%;
   min-height: 200px;
@@ -205,9 +217,11 @@ input {
   &:hover {
     border-bottom: 2px solid var(--primary);
   }
+
   &::placeholder {
     color: var(--contactLink);
   }
+
   &:focus,
   &:focus-visible,
   &:visited,
@@ -217,6 +231,7 @@ input {
     background-color: transparent;
   }
 }
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -224,6 +239,7 @@ input:-webkit-autofill:active {
   -webkit-animation: autofill 0s forwards;
   animation: autofill 0s forwards;
 }
+
 input:-internal-autofill-selected {
   background-color: transparent;
 }
@@ -250,6 +266,7 @@ input:-internal-autofill-selected {
   height: auto;
   border-radius: 5px;
   overflow: hidden;
+
   &::before {
     content: "";
     position: absolute;
@@ -260,6 +277,7 @@ input:-internal-autofill-selected {
     background-color: var(--contactLink);
     transform: rotateZ(15deg);
   }
+
   &:hover {
     &::before {
       animation-name: btn-animation;
@@ -282,6 +300,7 @@ input:-internal-autofill-selected {
   border: 2px solid;
   outline: none;
   width: 100%;
+
   &:hover {
     animation-name: color-change;
     animation-duration: 300ms;
@@ -289,6 +308,7 @@ input:-internal-autofill-selected {
     color: var(--secondary);
   }
 }
+
 .modal {
   position: absolute;
   // left: 50%;
@@ -309,6 +329,7 @@ input:-internal-autofill-selected {
     font-size: 0.8rem;
   }
 }
+
 @media screen and (max-width: 851px) {
   #contact {
     padding: 0 2rem;
@@ -317,31 +338,38 @@ input:-internal-autofill-selected {
     grid-template-rows: auto;
     position: relative;
   }
+
   .contact-image {
     grid-column: 1 / 4;
     grid-row: 2/ 6;
   }
+
   .form-position {
     grid-column: 1/ 6;
     grid-row: 1 / 2;
   }
+
   .links {
     grid-column: 3/ 6;
     grid-row: 2 / 3;
     padding: 0;
   }
+
   textarea {
     width: 100%;
     min-height: 15vh;
   }
+
   .form-size {
     min-width: 100%;
     padding: 0;
   }
+
   .place-image {
     background-size: contain;
     background-position: top;
   }
+
   .modal {
     width: 100%;
     margin-top: -4rem;
@@ -351,6 +379,7 @@ input:-internal-autofill-selected {
 @media screen and (max-width: 851px) {
   .links {
     text-align: right;
+
     p {
       font-size: 0.6rem;
     }
